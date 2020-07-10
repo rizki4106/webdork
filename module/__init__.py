@@ -24,12 +24,13 @@ class ModuleCode:
             print(no, i)
         
         # save search result
+        print('\n')
         ask = str(input('Do you want to save your search result ? [y/t] : '))
         if ask == "y" or ask == "Y":
             for i in self.data_url:
                 with open('log/history/result.txt', 'a') as files:
                     files.write(i + '\n')
-            print('done..! your result saved to log/history/result.txt\n')
+            print('\ndone..! your result saved to log/history/result.txt\n')
         else:
             print('ok\n')
 
@@ -105,13 +106,13 @@ class ModuleCode:
             soup = BeautifulSoup(web.txt)
             try:
                 with open('log/' + time + '/' + domain + '-' + hashurl.hexdigest() + '.txt', 'a') as logFile:
-                logFile.write(file_url + '\n\n')
-                logFile.write('written at : ' + str(datetime.datetime.now()) + '\n\n')
-                logFile.write('-----------------------------------------------------\n\n')
-                logFile.write(res)
-                logFile.write('=====================================================\n\n')
-                logFile.write(soup.get_text())
-                logFile.close()
+                    logFile.write(file_url + '\n\n')
+                    logFile.write('written at : ' + str(datetime.datetime.now()) + '\n\n')
+                    logFile.write('-----------------------------------------------------\n\n')
+                    logFile.write(res)
+                    logFile.write('=====================================================\n\n')
+                    logFile.write(soup.get_text())
+                    logFile.close()
             except IOError:
                 print('Unble to read file > ', file_url)
                 print(IOError)
