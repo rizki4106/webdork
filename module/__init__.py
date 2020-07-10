@@ -211,11 +211,14 @@ class ModuleCode:
                 print('\nResult : {} sites \n'.format(result))
 
             elif ask.split(" ")[0] == "readfile-url":
+                self.clear_screen()
                 self.read_file(ask.split(' ')[1])
             elif ask == "list-file":
+                self.clear_screen()
                 print(self.list_file())
 
             elif ask == "readfile-local":
+                self.clear_screen()
                 self.read_local()
 
             elif ask == "exit":
