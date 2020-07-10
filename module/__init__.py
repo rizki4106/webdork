@@ -190,6 +190,12 @@ class ModuleCode:
         print('5. exit')
         print('6. help\n\n')
 
+        # remove .google-cookie
+        try:
+            os.remove('.google-cookie')
+        except:
+            pass
+
         running = True
         while running:
             #listen for command
