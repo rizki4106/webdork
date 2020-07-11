@@ -18,10 +18,13 @@ class ModuleCode:
         """
         data = []
         no = 0
-        for i in search(keyword):
-            no += 1
-            self.data_url.append(i)
-            print(no, i)
+        try:
+            for i in search(keyword):
+                no += 1
+                self.data_url.append(i)
+                print(no, i)
+        except:
+            pass
         
         # save search result
         print('\n')
