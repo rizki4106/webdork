@@ -33,6 +33,7 @@ class ModuleCode:
             for i in self.data_url:
                 with open('log/history/result.txt', 'a') as files:
                     files.write(i + '\n')
+                    files.close()
             print('\ndone..! your result saved to log/history/result.txt\n')
         else:
             print('ok\n')
