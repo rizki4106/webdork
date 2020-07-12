@@ -23,20 +23,20 @@ class ModuleCode:
                 no += 1
                 self.data_url.append(i)
                 print(no, i)
+            # save search result
+            print('\n')
+            ask = str(input('Do you want to save your search result ? [y/t] : '))
+            if ask == "y" or ask == "Y":
+                for i in self.data_url:
+                    with open('log/history/result.txt', 'a') as files:
+                        files.write(i + '\n')
+                        files.close()
+                print('\ndone..! your result saved to log/history/result.txt\n')
+            else:
+                print('ok\n')
         except:
-            pass
+            print("Search engine failed")
         
-        # save search result
-        print('\n')
-        ask = str(input('Do you want to save your search result ? [y/t] : '))
-        if ask == "y" or ask == "Y":
-            for i in self.data_url:
-                with open('log/history/result.txt', 'a') as files:
-                    files.write(i + '\n')
-                    files.close()
-            print('\ndone..! your result saved to log/history/result.txt\n')
-        else:
-            print('ok\n')
 
         return no
 
