@@ -176,7 +176,11 @@ class ModuleCode:
         if platform.system() == "Windows":
             os.system("notepad " + selected_file)
         elif platform.system() == "Linux":
-            os.system("nano " + selected_file)
+            try:
+                os.system('gedit ' + selected_file)
+            except:
+                os.system("nano " + selected_file)
+                
         else:
 
             # if os is not detected this program will print on the terminal
