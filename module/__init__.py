@@ -1,4 +1,4 @@
-from googlesearch import search
+from bingsearchpy.bingsearch import engine
 from prettytable import PrettyTable
 import os, platform, urllib, datetime, hashlib, requests
 from bs4 import BeautifulSoup
@@ -18,24 +18,24 @@ class ModuleCode:
         """
         data = []
         no = 0
-        try:
-            for i in search(keyword):
-                no += 1
-                self.data_url.append(i)
-                print(no, i)
-            # save search result
-            print('\n')
-            ask = str(input('Do you want to save your search result ? [y/t] : '))
-            if ask == "y" or ask == "Y":
-                for i in self.data_url:
-                    with open('log/history/result.txt', 'a') as files:
-                        files.write(i + '\n')
-                        files.close()
-                print('\ndone..! your result saved to log/history/result.txt\n')
-            else:
-                print('ok\n')
-        except:
-            print("Search engine failed")
+        for i in engine.search(keyword):
+            no += 1
+            self.data_url.append(i['link'])
+            print(no, i['link'])
+        # save search result
+        print('\n')
+        ask = str(input('Do you want to save your search result ? [y/t] : '))
+        if ask == "y" or ask == "Y":
+            for i in self.data_url:
+                with open('log/history/result.txt', 'a') as files:
+                    files.write(i + '\n')
+                    files.close()
+            print('\ndone..! your result saved to log/history/result.txt\n')
+        else:
+            print('ok\n')
+        # try:
+        # except:
+        #     print("Search engine failed")
         
 
         return no
